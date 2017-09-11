@@ -1,7 +1,7 @@
-function getAndPrintHTML (options, callback) {
+module.exports = function getAndPrintHTML (options, callback) {
   var https = require('https')
   var results = ""
-  https.get(requestOptions, function(response){
+  https.get(options, function(response){
     response.setEncoding = 'utf8'
     response.on('data', function(data) {
       results += data
@@ -13,13 +13,7 @@ function getAndPrintHTML (options, callback) {
   return results
 }
 
+
 function printHTML (html) {
   console.log(html);
 }
-
-var requestOptions = {
-  host: 'sytantris.github.io',
-  path: '/http-examples/step4.html'
-};
-
-getAndPrintHTML(requestOptions, printHTML)
